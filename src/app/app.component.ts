@@ -8,6 +8,7 @@ import { Item } from './item.interface';
 })
 export class AppComponent {
   
+    shoppingCart: Item[] = [];
     items: Item[] = [];
 
     item1: Item = {
@@ -36,5 +37,9 @@ export class AppComponent {
 
     constructor(){
       this.items = [this.item1, this.item2, this.item3, this.item4];
+    }
+
+    addToCart(item: Item){
+      this.shoppingCart.push(item);
     }
 }
