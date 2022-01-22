@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Item } from './item.interface';
+import { Item, Item2 } from './item.interface';
 import { CartService } from './cart.service'
 import { PostsService } from './posts.service';
 
@@ -12,10 +12,14 @@ export class AppComponent {
   
     shoppingCart: Item[] = [];
     items: Item[] = [];
+    item2 = new Item2('New Item', 600);
 
     constructor(private cartService: CartService, private postsService: PostsService){
       
-      this.postsService.getFeed().subscribe((result) => this.items = result);
+      this.postsService.getFeed().subscribe((result) => {
+
+        this.items = result;
+      });
     }
 
     // item1: Item = {

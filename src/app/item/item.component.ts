@@ -29,8 +29,8 @@ export class ItemComponent{
   ngOnInit(): void {
   }
 
-  ngAfterViewChecked(): void {
-    console.log('After view checked');
-  }
+  // ngAfterViewChecked(): void {
+  //   console.log('After view checked');
+  // }
 
 }

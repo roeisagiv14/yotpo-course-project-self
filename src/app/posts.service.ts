@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Item } from './item.interface';
 
 @Injectable({
@@ -14,6 +14,6 @@ export class PostsService {
 
     getFeed(): Observable<Item[]> {
       
-      return this.httpClient.get<Item[]>(this.URL);
+      return this.httpClient.get<Item[]>(this.URL).pipe(map((items: Item[]) => items.map(item => ({...item, imageUrl: `https://studionorman.co.il/wp-content/uploads/2020/10/185-1.png`, price: 500}))));
   } 
 }
