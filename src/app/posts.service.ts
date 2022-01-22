@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Item } from './item.interface';
@@ -25,5 +25,26 @@ export class PostsService {
     };
 
     return this.httpClient.post<Item>(this.URL, body);
+  }
+
+  updatePost(id: number, item: Item) {
+    const body = {
+      userId: item.userId,
+      body: item.body,
+      title: item.title
+    }
+
+    return this.httpClient.put<Item>(`${this.URL}/${id}`, body)
+  }
+
+  getAllUserPosts(userId: number){
+
+    let params: HttpParams = new HttpParams();
+    params = params.append('userId', userId);
+
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('token', 'BLABLABLA');
+
+    return this.httpClient.get<Item[]>(this.URL, {params, headers});
   }
 }
