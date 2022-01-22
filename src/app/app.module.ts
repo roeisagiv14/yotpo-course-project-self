@@ -7,6 +7,9 @@ import { ItemComponent } from './item/item.component';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart/cart.component';
 import { FeedComponent } from './feed/feed.component';
+import { DiscountPipe} from './discount.pipe';
+import { ChangeColorDirective} from './change-color.directive';
+
 
 
 
@@ -16,6 +19,8 @@ import { FeedComponent } from './feed/feed.component';
     ItemComponent,
     CartComponent,
     FeedComponent,
+    DiscountPipe,
+    ChangeColorDirective
   ],
   imports: [
     BrowserModule,

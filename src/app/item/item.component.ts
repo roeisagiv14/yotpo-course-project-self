@@ -14,6 +14,8 @@ export class ItemComponent{
   @Output() addToCart:EventEmitter<Item | null> = new EventEmitter<Item | null>();
   @Output() removeFromCart:EventEmitter<Item | null> = new EventEmitter<Item | null>();
 
+  today = Date.now();
+
   addToCartClicked(){
     this.addToCart.emit(this.item);
   }
@@ -25,6 +27,10 @@ export class ItemComponent{
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('After view checked');
   }
 
 }
