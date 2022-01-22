@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Item } from './item.interface';
 import { CartService } from './cart.service'
+import { PostsService } from './posts.service';
 
 @Component({
   selector: 'app-root',
@@ -12,33 +13,34 @@ export class AppComponent {
     shoppingCart: Item[] = [];
     items: Item[] = [];
 
-    item1: Item = {
-      description: 'Dad print socks',
-      imageUrl: `https://studionorman.co.il/wp-content/uploads/2020/10/184-1.png`,
-      price: 89
-    };
-  
-    item2: Item = {
-      description: 'Dog print socks',
-      imageUrl: 'https://studionorman.co.il/wp-content/uploads/2020/10/185-1.png',
-      price: 89
-    };
-  
-    item3: Item = {
-      description: 'Dog print socks',
-      imageUrl: 'https://studionorman.co.il/wp-content/uploads/2020/10/1811.png',
-      price: 89
-    };
-  
-    item4: Item = {
-      description: 'Child print socks',
-      imageUrl: 'https://studionorman.co.il/wp-content/uploads/2020/10/182-2.png',
-      price: 89
-    };
-
-    constructor(private cartService: CartService){
-      this.items = [this.item1, this.item2, this.item3, this.item4];
+    constructor(private cartService: CartService, private postsService: PostsService){
+      
+      this.postsService.getFeed().subscribe((result) => this.items = result);
     }
+
+    // item1: Item = {
+    //   description: 'Dad print socks',
+    //   imageUrl: `https://studionorman.co.il/wp-content/uploads/2020/10/184-1.png`,
+    //   price: 89
+    // };
+  
+    // item2: Item = {
+    //   description: 'Dog print socks',
+    //   imageUrl: 'https://studionorman.co.il/wp-content/uploads/2020/10/185-1.png',
+    //   price: 89
+    // };
+  
+    // item3: Item = {
+    //   description: 'Dog print socks',
+    //   imageUrl: 'https://studionorman.co.il/wp-content/uploads/2020/10/1811.png',
+    //   price: 89
+    // };
+  
+    // item4: Item = {
+    //   description: 'Child print socks',
+    //   imageUrl: 'https://studionorman.co.il/wp-content/uploads/2020/10/182-2.png',
+    //   price: 89
+    // };
 
     addToCart(item: Item): void{
       this.cartService.addToCart(item);
