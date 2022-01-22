@@ -16,4 +16,14 @@ export class PostsService {
       
       return this.httpClient.get<Item[]>(this.URL).pipe(map((items: Item[]) => items.map(item => ({...item, imageUrl: `https://studionorman.co.il/wp-content/uploads/2020/10/185-1.png`, price: 500}))));
   } 
+
+  addPost(item: Item): Observable<Item>{
+    const body = {
+      userId: item.userId,
+      body: item.body,
+      title: item.title
+    };
+
+    return this.httpClient.post<Item>(this.URL, body);
+  }
 }
