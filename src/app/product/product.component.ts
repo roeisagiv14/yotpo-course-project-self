@@ -11,12 +11,15 @@ import { PostsService } from '../posts.service';
 export class ProductComponent implements OnInit {
 
   item: Item | null = null;
+  loading: boolean = false;
 
   constructor(private postsService: PostsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this.activatedRoute.data.subscribe();
+    this.activatedRoute.data.subscribe((res: any) => {this.item = res[0];
+    this.loading = false;
+    });
   }
 
 }

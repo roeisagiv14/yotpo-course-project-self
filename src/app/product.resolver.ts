@@ -4,15 +4,17 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
+import { Item } from './item.interface';
 import { PostsService } from './posts.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductResolver implements Resolve<boolean> {
+export class ProductResolver implements Resolve<Item> {
   constructor(private postsService: PostsService){}
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item> {
+    const id = route.params['id'];
+    return this.postsService.getPostById(id).pipe(delay(3000))
   }
 }
