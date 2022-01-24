@@ -10,7 +10,7 @@
 
 .header{
     background-color: beige;
-    height: 50px;
+    height: 70px;
     text-align: center;
   
     h1 {
@@ -20,3 +20,10 @@
       padding-top: 15px;
     }
   }
+
+.links{
+    margin: 10px;
+    a{
+        margin-right: 10px;
+    }
+}

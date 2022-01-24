@@ -18,4 +18,7 @@ export class CartComponent implements OnInit {
     this.shoppingCart = this.cartService.shoppingCart;
   }
 
+  removeFromCart(item: Item){
+    this.cartService.removeFromCart(item);
+  }
 }

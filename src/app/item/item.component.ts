@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import {Item} from "../item.interface";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -24,9 +25,13 @@ export class ItemComponent{
     this.removeFromCart.emit(this.item);
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToProduct(){
+    this.router.navigateByUrl(`/product/${this.item?.id}`)
   }
 
   // ngAfterViewChecked(): void {

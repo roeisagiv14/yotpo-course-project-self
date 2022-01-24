@@ -47,4 +47,8 @@ export class PostsService {
 
     return this.httpClient.get<Item[]>(this.URL, {params, headers});
   }
+
+  getPostById(id: number): Observable<Item>{
+    return this.httpClient.get<Item>(`${this.URL}/${id}`);
+  }
 }
