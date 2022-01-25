@@ -12,6 +12,7 @@ import { ChangeColorDirective} from './change-color.directive';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -25,7 +26,8 @@ import { ProductComponent } from './product/product.component';
     FeedComponent,
     DiscountPipe,
     ChangeColorDirective,
-    ProductComponent
+    ProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

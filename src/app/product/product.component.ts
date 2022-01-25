@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { Item } from '../item.interface';
 import { PostsService } from '../posts.service';
 
@@ -17,8 +17,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.activatedRoute.data.subscribe((res: any) => {this.item = res[0];
-    this.loading = false;
+    this.activatedRoute.data.subscribe((data: Data) => {this.item = data[0];
+    
     });
   }
 
